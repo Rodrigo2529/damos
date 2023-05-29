@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Crear Control</h1>
+    <form method="POST" action="{% url 'preventivos:crear_control' equipo_id %}">
+        {% csrf_token %}
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" required><br>
+        <label for="observaciones">Observaciones:</label>
+        <textarea name="observaciones" required></textarea><br>
+        <button type="submit">Guardar Control</button>
+    </form>
+{% endblock %}

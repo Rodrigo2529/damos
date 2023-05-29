@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Crear Empresa</h1>
+    <form method="POST" action="{% url 'preventivos:crear_empresa' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crear Empresa</button>
+    </form>
+{% endblock %}

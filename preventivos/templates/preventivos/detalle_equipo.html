@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Detalle del Equipo</h1>
+    <h2>{{ equipo.nombre }}</h2>
+    {% if controles %}
+        <ul>
+            {% for control in controles %}
+                <li>{{ control.fecha }} - {{ control.realizado_por.username }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay controles registrados para este equipo.</p>
+    {% endif %}
+{% endblock %}

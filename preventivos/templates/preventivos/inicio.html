@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'preventivos:cerrar_sesion' %}">Cerrar sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'preventivos:configurar_perfil' %}">Configurar perfil</a>
+                </li>
+                <li class="nav-item">
+                
+                    <a class="nav-link" href="{% url 'preventivos:crear_control' equipo_id=equipo_id %}">Crear control</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'preventivos:crear_empresa' %}">Crear empresa</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Inicio</h1>
+
+        
+        {% if empresas %}
+            <ul>
+                {% for empresa in empresas %}
+                    <li>{{ empresa.nombre }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay empresas registradas.</p>
+        {% endif %}
+    </div>
+
+    <footer>
+        <!-- Contenido del Footer -->
+    </footer>
+{% endblock %}
+

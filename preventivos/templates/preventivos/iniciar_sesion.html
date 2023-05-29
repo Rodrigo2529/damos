@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="content-container">
+        <div class="login-container">
+            <img src="{% static 'img/share.jpg' %}" alt="Share Image" class="share-image">
+            <form method="POST" action="{% url 'preventivos:iniciar_sesion' %}">
+                {% csrf_token %}
+                <div class="login-form">
+                    <h2>Login Damos</h2>
+                    <div class="form-group">
+                        {{ form.username.label_tag }}
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password.label_tag }}
+                        {{ form.password }}
+                    </div>
+                    <input type="submit" class="btn-login" value="Iniciar Sesión">
+                    {% load static %}
+                    <a href="{% url 'preventivos:enviar_correo' %}" class="btn-forgot-password">¿Olvidaste tu contraseña?</a>
+
+                    
+                    <a href="#" class="btn-inicio">Volver al inicio</a>
+                    <a href="#" class="btn-register">Registrar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
